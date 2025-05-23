@@ -1,7 +1,7 @@
 # run_iss.py
-from src.iss_api import get_iss_position
+from src import iss_api
 
-position = get_iss_position()
+position = iss_api.get_iss_position()
 
 if position:
     print("🚀 ISS Location:")
