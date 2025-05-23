@@ -1,4 +1,5 @@
 tasks = []
+completed = []
 
 def add_task(task):
     tasks.append(task)
@@ -11,7 +12,10 @@ def list_tasks():
         print("Tasks:")
         for i, task in enumerate(tasks, start=1):
             print(f"{i}. {task}")
-
+    if completed:
+        print("\n✅ Completed Tasks:")
+        for c in completed:
+            print(f"- {c}")
 if __name__ == "__main__":
     while True:
         print("\nOptions: add, list, quit")
@@ -26,3 +30,11 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid option.")
+elif choice == "complete":
+    index = int(input("Task number to mark complete: ")) - 1
+    if 0 <= index < len(tasks):
+        completed_task = tasks.pop(index)
+        completed.append(completed_task)
+        print(f"Marked task as complete: {completed_task}")
+    else:
+        print("Invalid task number.")
